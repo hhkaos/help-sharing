@@ -227,7 +227,7 @@ body{
   width:100%;
 }
 
-@media (max-width: 796px) {
+@media (max-width: 980px) {
   #actions li {
     display: block;
     width: 100%
