@@ -1,0 +1,117 @@
+<html>
+<head>
+    <script>
+      // CHANGE THE TEXT
+      var shared_url = "http://madrid.up.co/events/5110",
+        twitter_msg = "Startup Weekend Madrid, 17th-19th April, ¡do not miss your ticket!",
+        twitter_via = "swmadrid",
+        linkedin_msg = "Startup Weekend Madrid is back!",
+        linkedin_summary = 'After 3 years Startup Weekend will happen on Madrid from 17th to 19th of April. Do not miss this edition!';
+
+    </script>
+    <title>Share.me</title>
+    <link rel="stylesheet" href="../css/share.css" />
+</head>
+<body>
+
+  <article id="post-21" class="post-21 page type-page status-publish hentry">
+    <header class="entry-header">
+      <h1 class="entry-title">Thanks</h1>
+    </header>
+
+    <div class="entry-content">
+      <h1 style="text-align: center;">Help us with 3 clicks</h1>
+      <p style="text-align: center;">Share it on your social networks and help us to reach more people.</p>
+      <div id="progress">
+        <div class="percent">
+        <div class="number">0%</div>
+      </div>
+    </div>
+
+    <ul id="actions">
+      <li>
+        <h2>1. Facebook</h2>
+        <p>Share it with your friend</p>
+        <p><button class="facebook">Share</button>
+      </li>
+      <li>
+        <h2>2. Twitter.</h2>
+        <p>Share it with your followers</p>
+        <p><button class="twitter">Tweet</button>
+      </li>
+      <li>
+        <h2>3. Linkedin</h2>
+        <p>Share it with your contacts</p>
+        <p><button class="linkedin">Share</button>
+      </li>
+    </ul>
+  </div>
+
+  </article>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <script>
+
+    $(function () {
+      var shares = [];
+
+      var w = 580, h = 300,
+        left = (screen.width / 2) - (w / 2),
+        top = (screen.height / 2) - (h / 2);
+
+      $('button').on('click', function () {
+        var clicks = 0;
+        var network = $(this).data("network");
+        if($.inArray(network, shares) == -1){
+          shares.push(network);
+          clicks=shares.length
+
+          var prop_name={};
+          prop_name['Share on ' + network]=true;
+
+
+          var percent = Math.min(Math.round(clicks / 3 * 100), 100);
+          $('.percent').width(percent + '%');
+          $('.percent').attr("data-percentage",percent)
+          $('.number').text(percent + '%');
+        }
+      });
+      $(".invitation button").one('click',function(){
+          $(this).text($(this).data('alt'));
+          $(this).addClass("facebook");
+      });
+
+      $('.facebook').on('click', function() {
+        var w = 580, h = 300,
+          left = (screen.width / 2) - (w / 2),
+          top = (screen.height / 2) - (h / 2);
+
+        window.open('http://www.facebook.com/share.php?u='+shared_url, '', 'toolbar = no, location = no, directories = no, status = no, menubar = no, scrollbars = no, resizable = no, copyhistory = no, width = ' + w + ', height = ' + h + ', top = ' + top + ', left = ' + left);
+      });
+
+
+      $('.twitter').on('click', function() {
+        var title = twitter_msg,
+            loc = encodeURIComponent(shared_url),
+            via = twitter_via;
+
+        window.open('http://twitter.com/share?text=' + title + '&url=' + loc + '&via='+via, '', 'height=' + h + ', width=' + w + ', top='+top +', left='+ left +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+      });
+
+      $('.linkedin').on('click', function() {
+          var title = linkedin_msg;
+          var summary = linkedin_summary;
+          loc = encodeURIComponent(shared_url),
+
+          window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + loc + '&title=' + title + '&summary=' + summary, '', 'height=' + h + ', width=' + w + ', top='+top +', left='+ left +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+      });
+
+    });
+
+  </script>
+
+
+</body>
+</html>
