@@ -1,0 +1,33 @@
+button{
+	font-size: 17px;
+	width: 80%;
+	position: relative;
+}
+.fa{
+	margin-right: 6px;
+}
+.fa-linkedin{
+	position: relative;
+	top:-2px;
+}
+
+@media (max-width: 1120px) {
+  img{
+  	width: 82%;
+  }
+  #actions li {
+    display: block;
+    width: 100%
+  }
+  #actions li button{
+    width: 80%;
+    font-size: 1em;
+    height: 2.5em;
+  }
+}
+@media (max-width: 650px) {
+  #actions li button{
+    width: 80%;
+    font-size: .6em;
+  }
+}

@@ -1,0 +1,117 @@
+<html>
+<head>
+    <script>
+      // CHANGE THE TEXT
+      var shared_url = "http://www.congresoiniciador.com",
+        twitter_msg = "Apúntate al congreso Iniciador J12/03",
+        twitter_via = "iniciador_ZGZ",
+        twitter_hashtags="CongresoIniciador,ZGZ,aquiemprendemos2015";
+        linkedin_msg = "¡Ayúdanos a hacer realidad el V Congreso Iniciador! #aquiemprendemos2015",
+        linkedin_summary = 'El próximo jueves 12/03 queremos celebrar en Zaragoza el #CongresoIniciador Necesitamos tu apoyo para hacerlo realidad... http://www.congresoiniciador.com';
+
+    </script>
+    <title>Share.me</title>
+    <link rel="stylesheet" href="../css/share.css?hash=522015" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/iniciador.css?hash=522015" />
+</head>
+<body>
+
+  <article id="post-21" class="post-21 page type-page status-publish hentry">
+    <header class="entry-header">
+      <h1 class="entry-title">Thanks</h1>
+    </header>
+
+    <div class="entry-content">
+      <h1 style="text-align: center;"><a href="http://www.lanzanos.com/proyectos/v-congreso-de-iniciador/" target="_blank"><img src="img/iniciador_1.jpg"></a></h1>
+      <p style="text-align: center;padding: 0 1em">Ayúdanos a difundirlo con sólo 3 clics.</p>
+      <div id="progress">
+        <div class="percent">
+        <div class="number">0%</div>
+      </div>
+    </div>
+
+    <ul id="actions">
+      <li>
+        <button class="twitter"> <i class="fa fa-twitter fa-lg"></i>
+ Comparte en Twitter #CongresoIniciador</button>
+      </li>
+      <li>
+        <button class="facebook"><i class="fa fa-facebook fa-lg"></i> Comparte en Facebook @IniciadorGlobal</button>
+      </li>
+      <li>
+        <button class="linkedin"><i class="fa fa-linkedin fa-lg"></i> Comparte en Linkedin</button>
+      </li>
+    </ul>
+  </div>
+
+  </article>
+
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+  <script>
+
+    $(function () {
+      var shares = [];
+
+      var w = 580, h = 300,
+        left = (screen.width / 2) - (w / 2),
+        top = (screen.height / 2) - (h / 2);
+
+      $('button').on('click', function () {
+        var clicks = 0;
+        var network = $(this).data("network");
+        if($.inArray(network, shares) == -1){
+          shares.push(network);
+          clicks=shares.length
+
+          var prop_name={};
+          prop_name['Share on ' + network]=true;
+
+
+          var percent = Math.min(Math.round(clicks / 3 * 100), 100);
+          $('.percent').width(percent + '%');
+          $('.percent').attr("data-percentage",percent)
+          $('.number').text(percent + '%');
+        }
+      });
+      $(".invitation button").one('click',function(){
+          $(this).text($(this).data('alt'));
+          $(this).addClass("facebook");
+      });
+
+      $('.facebook').on('click', function() {
+        var w = 580, h = 300,
+          left = (screen.width / 2) - (w / 2),
+          top = (screen.height / 2) - (h / 2);
+
+        window.open('http://www.facebook.com/share.php?u='+shared_url, '', 'toolbar = no, location = no, directories = no, status = no, menubar = no, scrollbars = no, resizable = no, copyhistory = no, width = ' + w + ', height = ' + h + ', top = ' + top + ', left = ' + left);
+      });
+
+
+      $('.twitter').on('click', function() {
+        var title = twitter_msg,
+            loc = encodeURIComponent(shared_url),
+            via = twitter_via;
+
+        url = 'http://twitter.com/share?text=' + title + '&url=' + loc + '&via='+via + '&hashtags='+twitter_hashtags;
+        console.log(url);
+        window.open(url, '', 'height=' + h + ', width=' + w + ', top='+top +', left='+ left +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+      });
+
+      $('.linkedin').on('click', function() {
+          var title = linkedin_msg;
+          var summary = linkedin_summary;
+          loc = encodeURIComponent(shared_url),
+
+          window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + loc + '&title=' + title + '&summary=' + summary, '', 'height=' + h + ', width=' + w + ', top='+top +', left='+ left +', toolbar=0, location=0, menubar=0, directories=0, scrollbars=0');
+      });
+
+    });
+
+  </script>
+
+
+</body>
+</html>
