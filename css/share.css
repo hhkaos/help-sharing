@@ -70,11 +70,11 @@ h2 {
     height: 40px;
     position: relative;
 }
-#progress .percent[data-percentage='67']{
+#progress .percent[data-percentage='75']{
     background-image: linear-gradient(rgb(255, 197, 76),rgb(245, 210, 71));
     background-color: blue;
 }
-#progress .percent[data-percentage='33']{
+#progress .percent[data-percentage='50']{
     background-image: linear-gradient(rgb(52, 174, 255),rgb(71, 168, 245));
     background-color: orange;
 }
@@ -168,6 +168,23 @@ button {
     cursor: pointer;
     margin: 0px;
     opacity: 0.99;
+}
+
+button.orange{
+    background: #00bbea; /* Old browsers */
+    background: -moz-linear-gradient(top,  #FFAE00  0%, #C77900 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FFAE00 ), color-stop(100%,#C77900)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #FFAE00  0%,#C77900 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #FFAE00  0%,#C77900 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #FFAE00  0%,#C77900 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #FFAE00  0%,#C77900 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFAE00 ', endColorstr='#C77900',GradientType=0 ); /* IE6-9 */
+    -moz-box-shadow: inset 0 1px 0 0 #FFAE00;
+    -webkit-box-shadow: inset 0 1px 0 0 #FFAE00;
+    -o-box-shadow: inset 0 1px 0 0 #FFAE00;
+    box-shadow: inset 0 1px 0 0 #FFAE00;
+    text-shadow: #C77900 0 1px 0;
+    border: 1px solid orange;
 }
 
 button:hover {

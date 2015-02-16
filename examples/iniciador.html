@@ -32,19 +32,23 @@
       </div>
     </div>
 
-    <ul id="actions">
+    <ul id="actions" class="col-md-4">
       <li>
-        <button class="twitter"> <i class="fa fa-twitter fa-lg"></i>
+        <button class="orange" data-network="congreso"> 
+ Apoya al V Congreso Iniciador en lanzanos.com</button>
+      </li>
+      <li>
+        <button class="twitter" data-network="twitter"> <i class="fa fa-twitter fa-lg"></i>
  Comparte en Twitter #CongresoIniciador</button>
       </li>
       <li>
-        <button class="facebook"><i class="fa fa-facebook fa-lg"></i> Comparte en Facebook @IniciadorGlobal</button>
+        <button class="facebook" data-network="facebook"><i class="fa fa-facebook fa-lg"></i> Comparte en Facebook @IniciadorGlobal</button>
       </li>
       <li>
-        <button class="linkedin"><i class="fa fa-linkedin fa-lg"></i> Comparte en Linkedin</button>
+        <button class="linkedin" data-network="linkedin"><i class="fa fa-linkedin fa-lg"></i> Comparte en Linkedin</button>
       </li>
     </ul>
-    <p class="gotoIniciador"><a href="http://www.lanzanos.com/proyectos/v-congreso-de-iniciador/" target="_blank" style="
+    <p class="gotoIniciador"><a href="http://www.congresoiniciador.com/" target="_blank" style="
     color: white;
 ">Quiero asistir a la II Global Meeting<br>Viernes, 13/03/2015 Zaragoza.</a></p>
   </div>
@@ -67,6 +71,7 @@
         var clicks = 0;
         var network = $(this).data("network");
         if($.inArray(network, shares) == -1){
+          //debugger
           shares.push(network);
           clicks=shares.length
 
@@ -74,7 +79,7 @@
           prop_name['Share on ' + network]=true;
 
 
-          var percent = Math.min(Math.round(clicks / 3 * 100), 100);
+          var percent = Math.min(Math.round(clicks / 4 * 100), 100);
           $('.percent').width(percent + '%');
           $('.percent').attr("data-percentage",percent)
           $('.number').text(percent + '%');
@@ -83,6 +88,14 @@
       $(".invitation button").one('click',function(){
           $(this).text($(this).data('alt'));
           $(this).addClass("facebook");
+      });
+
+      $('.orange').on('click', function() {
+        var w = 1024, h = 600,
+          left = (screen.width / 2) - (w / 2),
+          top = (screen.height / 2) - (h / 2);
+
+        window.open('http://www.lanzanos.com/proyectos/v-congreso-de-iniciador/', '', 'toolbar = yes, location = yes, directories = no, status = no, menubar = no, scrollbars = no, resizable = yes, copyhistory = no, width = ' + w + ', height = ' + h + ', top = ' + top + ', left = ' + left);
       });
 
       $('.facebook').on('click', function() {
